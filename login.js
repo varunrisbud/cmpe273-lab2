@@ -1,4 +1,3 @@
-
 /**
  * Login Class
  */
@@ -42,10 +41,19 @@ Login.prototype.login = function(_name, _email) {
  */ 
 Login.prototype.logout = function(sessionId) {
 	console.log('logout::' + sessionId);
+	delete this.sessionMap[sessionId]; 
    /*
 	* TODO: Remove the given sessionId from the sessionMap
 	*/
 };
 
+Login.prototype.getName = function(sessionId) {
+	return this.sessionMap[sessionId].name;
+};
+
+Login.prototype.getEmail = function(sessionId) {
+	return this.sessionMap[sessionId].email;
+};
+	
 // Export the Login class
 module.exports = new Login();
